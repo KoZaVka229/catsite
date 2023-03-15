@@ -1,0 +1,19 @@
+{% extends 'messager/sign_base.html' %}
+
+{% block form_before %}
+{% if form.errors %}
+<p>Your username or password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+{% endblock form_before %}
+
+{% block form_after %}
+<p>Нет аккаунта? <a href="{% url 'signup' %}">Регистрация</a></p>
+{% endblock form_after %}

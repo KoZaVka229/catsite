@@ -1,0 +1,26 @@
+{% extends 'messager/base.html' %}
+{% load thumbnail %}
+
+{% block content %}
+
+{% if profile.nickname %}
+<p>Nickname: <b>{{ profile.nickname }}</b></p>
+{% endif %}
+
+{% if profile.shortname %}
+<p>Shortname: <b>{{ profile.shortname }}</b></p>
+{% endif %}
+
+{% if profile.status %}
+<p>Status: <b>{{ profile.status }}</b></p>
+{% endif %}
+
+{% if profile.avatar %}
+<p><img src="{{ profile.avatar|thumbnail_url:'avatar' }}" class="circle"></p>
+{% endif %}
+
+{% if is_my_profile %}
+<p><a href="{% url 'edit_profile' %}">Редактировать</a></p>
+{% endif %}
+
+{% endblock content %}

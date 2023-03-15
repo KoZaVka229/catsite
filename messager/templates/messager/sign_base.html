@@ -1,0 +1,21 @@
+{% extends 'messager/base.html' %}
+
+
+{% block content %}
+
+{% block form_before %}
+{% endblock form_before %}
+
+{% block form %}
+<form method="post"> {% csrf_token %}
+    {% block form_content %}
+    {{ form.as_p }}
+    {% endblock form_content %}
+    <input type="submit" value="{{ title }}">
+</form>
+{% endblock form %}
+
+{% block form_after %}
+{% endblock form_after %}
+
+{% endblock content %}

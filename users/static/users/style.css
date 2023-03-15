@@ -1,0 +1,7 @@
+.fixed {
+    resize: none;
+}
+
+.circle {
+    border-radius: 50%;
+}
